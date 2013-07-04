@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Artist:</b>
+  <%= @list.artist %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @list.title %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @list.category %>
+</p>
+
+<p>
+  <b>Club:</b>
+  <%= @list.club %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
