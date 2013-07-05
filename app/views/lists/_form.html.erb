@@ -10,24 +10,50 @@
       </ul>
     </div>
   <% end %>
+  <br/>
+  <hr />
 
-  <div class="field">
-    <%= f.label :artist %><br />
+  <div class="field form-inline">
+    <%= f.label :club_id, "Select club" %>:
+    <%= f.collection_select :club_id, Club.all, :id, :name, prompt: true %>
+  </div>
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :artist %>:
     <%= f.text_field :artist %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :title %>:
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :category %>:
     <%= f.number_field :category %>
   </div>
-  <div class="field">
-    <%= f.label :club_id %><br />
-    <%= f.number_field :club_id, :value => @club.id %>
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :listen_link, "Please put a Youtube, Spotify or Soundcloud link here (url) so others can listen to the song." %>:
+    <%= f.text_field :listen_link %>
   </div>
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :media_type %>:
+    <%= f.select(:media_type, [["Youtube", 1], ["Spotify", 2], ["Soundcloud", 3], ["Other", 4]], prompt: true) %>
+  </div>
+  <hr />
+  <div class="field form-inline">
+    <h4>Hidden fields</h4>
+    <%= f.label :user_name %>:
+    <%= f.text_field :user_name, :value => current_user.name %>
+  </div>
+  <div class="field form-inline">
+    <%= f.label :user_id %>:
+    <%= f.number_field :user_id, :value => current_user.uid %>
+  </div>
+  <br/>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Share :)", :name => "create_button", :class => "btn btn-success"%>
   </div>
 <% end %>

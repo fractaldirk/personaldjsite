@@ -1,1 +1,60 @@
-<%= render "lists/form" %>
+<div class="container-narrow">
+  <%= form_for(@list) do |f| %>
+    <% if @list.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+        <ul>
+        <% @list.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <br/>
+    <hr />
+
+    <div class="field form-inline">
+      <%= f.label :artist %><br />
+      <%= f.text_field :artist %>
+    </div>
+    <hr />
+    <div class="field form-inline">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <hr />
+    <div class="field form-inline">
+      <%= f.label :category %><br />
+      <%= f.number_field :category %>
+    </div>
+    <hr />
+    <div class="field form-inline">
+      <%= f.label :listen_link, "Please put a Youtube, Spotify or Soundcloud link here (url) so others can listen to the song." %><br />
+      <%= f.text_field :listen_link %>
+    </div>
+    <hr />
+    <div class="field form-inline">
+      <%= f.label :media_type %><br />
+      <%= f.select(:media_type, [["Youtube", 1], ["Spotify", 2], ["Soundcloud", 3], ["Other", 4]], prompt: true) %>
+    </div>
+    <hr />
+    <div class="field form-inline">
+      <h4>Hidden fields</h4>
+      <%= f.label :user_name %><br />
+      <%= f.text_field :user_name, :value => current_user.name %>
+    </div>
+    <div class="field form-inline">
+      <%= f.label :user_id %><br />
+      <%= f.number_field :user_id, :value => current_user.uid %>
+    </div>
+    <div class="field form-inline">
+      <%= f.label :club_id %><br />
+      <%= f.number_field :club_id, :value => @club.id %>
+    </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

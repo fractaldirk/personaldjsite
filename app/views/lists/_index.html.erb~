@@ -1,0 +1,30 @@
+<h3>Listing lists</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th></th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Category</th>
+    <th></th>
+    <th># Votes</th>
+    <th></th>
+
+  </tr>
+
+<% my_awesome_counter = 0 %>
+<% @lists.each do |list| %>
+  <% my_awesome_counter += 1 %>
+  <tr>
+    <td><%= my_awesome_counter %></td>
+    <td><%= link_to 'Listen', list.listen_link, :target => "_blank", :class => "btn btn-inverse btn-mini" %></td>
+    <td><%= link_to list.title, list %></td>
+    <td><%= list.artist %></td>
+    <td><%= list.category %></td>
+    <td><%= link_to 'Vote', "#" %></td>
+    <td>xxx</td>
+    <td><%= link_to 'Promote', "#", :class => "btn btn-mini btn-inverse" %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,31 @@
+<h3>My club list</h3>
+
+<table class="table">
+  <tr>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Club</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lists.each do |list| %>
+  <tr>
+    <td><%= list.artist %></td>
+    <td><%= list.title %></td>
+    <% @find_club_name.each do |c| %>
+      <% if c.id = list.club_id %>
+        <td><%= c.name %></td>
+      <% end %>
+    <% end %>
+    <td><%= link_to 'listen', list.listen_link, :target => "_blank" %></td>
+    <td><%= link_to 'Show', list %></td>
+    <td><%= link_to 'Promote', "#", :class => "btn btn-inverse btn-mini" %></td>
+    <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

@@ -2,11 +2,15 @@ class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all
+    if current_user
+      redirect_to home_index_path
+    else
+      @clubs = Club.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @clubs }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @clubs }
+      end
     end
   end
 

@@ -33,7 +33,7 @@
 
       <div class="jumbotron">
         <h1>Discover, share and enjoy music!</h1>
-        <p class="lead">Wouldn't it be wonderful to create a community where new artists could share and promote their singles, where music fans could share their favorite songs.</p>
+        <p class="lead">Wouldn't it be wonderful to create a community where new artists could share and promote their singles, where music fans could share their favorite songs...</p>
         <%= link_to 'Sign up today', "#", :class => "btn btn-large btn-success sign_up_button" %>
         <%= link_to 'Sign in', "/auth/facebook", :class => "btn btn-large btn-primary sign_in_button" %>
       </div>

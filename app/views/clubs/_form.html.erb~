@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="field">
-    <%= f.label :location, "City/Stad" %><br />
+    <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
   <div class="field">

@@ -1,26 +1,81 @@
-<%- model_class = Club -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @club.name %></dd>
-</dl>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+</head>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              clubs_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_club_path(@club), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              club_path(@club),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-  <%= link_to t('.new_list', :default => t("helpers.links.new_list")),
-              new_list_club_path(@club), :class => 'btn btn-primary' %>
-</div>
+  <body id="myBody" style="display:none">
 
-<hr />
-  <%= render "/lists/index" %>
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Activity feed</a></li>
+          <li><a href="#">News</a></li>
+        <% if current_user %>
+          <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', "/auth/facebook", id: "sign_in" %></li>
+        <% end %>
+        </ul>
+        <h3 class="muted">Personal DJ</h3>
+      </div>
+
+      <hr>
+
+      <h1><%= @club.name %> <% if @club.location.present? %>
+        - <%= @club.location %>
+      <% end %></h1>
+      <hr />
+      <%= simple_format @club.description %>
+      <hr />
+      <%= render "lists/index" %>
+
+
+    <!--- #new sub row
+      <div class="row-fluid sub_row">
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+    --->
+
+
+
+      <hr>
+
+      <div class="footer">
+        <p>© Personal DJ 2013</p>
+      </div>
+
+    </div>
+</body>
+
+
+
+  <div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                clubs_path, :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_club_path(@club), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                club_path(@club),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+    <%= link_to t('.new_list', :default => t("helpers.links.new_list")),
+                new_list_club_path(@club), :class => 'btn btn-primary' %>
+  </div>
