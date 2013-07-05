@@ -1,25 +1,45 @@
-<%= form_for @club, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+<%= form_for(@club) do |f| %>
+  <% if @club.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@club.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% @club.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
+  <% end %>
+  <br/>
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :name, "Club name" %>:
+    <%= f.text_field :name, :class => 'text_field' %>
   </div>
-  <div class="field">
-    <%= f.label :location, "City/Stad" %><br />
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :location, "City/Stad" %>:
     <%= f.text_field :location %>
   </div>
-  <div class="field">
-    <%= f.label :contact_person %><br />
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :contact_person %>:
     <%= f.text_field :contact_person %>
   </div>
-  <div class="field">
-    <%= f.label :telephone_number %><br />
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :telephone_number %>:
     <%= f.text_field :telephone_number %>
   </div>
+  <hr />
+  <div class="field form-inline">
+    <%= f.label :website, "Website link" %>:
+    <%= f.text_field :website %>
+  </div>
+  <hr />
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description, "Description:" %><br/>
+    <%= f.text_area :description, :class => "text_area" %>
   </div>
 
   <div class="form-actions">
