@@ -10,7 +10,7 @@ $ ->
   document.getElementById("myBody").style.display = ""
 
   $(".sign_up_button").click (event) ->
-  $(".instructions").fadeToggle()
-  $(".sign_up_button").hide()
-  $(".sign_in_button").show()
-  event.preventDefault()
+    $(".instructions").fadeToggle()
+    $(".sign_up_button").hide()
+    $(".sign_in_button").show()
+    event.preventDefault()
