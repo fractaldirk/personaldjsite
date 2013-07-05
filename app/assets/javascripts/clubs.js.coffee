@@ -6,7 +6,11 @@ $ ->
   $(".instructions").hide()
   $(".sign_up_button").show()
   $(".sign_in_button").hide()
-  $(".sign_up_button").click ->
-    $(".instructions").fadeToggle()
-    $(".sign_up_button").hide()
-    $(".sign_in_button").show()
+
+  document.getElementById("myBody").style.display = ""
+
+  $(".sign_up_button").click (event) ->
+  $(".instructions").fadeToggle()
+  $(".sign_up_button").hide()
+  $(".sign_in_button").show()
+  event.preventDefault()
