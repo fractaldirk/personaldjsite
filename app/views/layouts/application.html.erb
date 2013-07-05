@@ -11,6 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="user_nav">
+    <% if current_user %>
+      Signed in as <strong><%= current_user.name %></strong>!
+    <% end %>
+  </div>
 
 <%= yield %>
 

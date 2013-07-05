@@ -19,8 +19,11 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Getting started</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Sign in</a></li>
+        <% if current_user %>
+          <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', "/auth/facebook", id: "sign_in" %></li>
+        <% end %>
         </ul>
         <h3 class="muted">Personal DJ</h3>
       </div>
@@ -30,7 +33,7 @@
       <div class="jumbotron">
         <h1>Discover, share and enjoy music!</h1>
         <p class="lead">Wouldn't it be wonderful to create a community where new artists could share and promote their singles, where music fans could share their favorite songs.</p>
-        <a class="btn btn-large btn-success" href="#">Sign up today</a>
+        <%= link_to 'Sign up today', home_instructions_path, :class => "btn btn-large btn-success" %>
       </div>
 
       <hr>
@@ -59,6 +62,7 @@
         </div>
       </div>
 
+    <!--- #new sub row
       <div class="row-fluid sub_row">
         <div class="span6">
           <h4>Subheading</h4>
@@ -69,6 +73,7 @@
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
+    --->
 
 
 

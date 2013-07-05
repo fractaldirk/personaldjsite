@@ -27,16 +27,13 @@ body {
 }
 
 /* Supporting marketing content */
-.first_row {
+.sub_row {
   margin: 60px 0;
 }
-.first_row p + h4 {
+.sub_row p + h4 {
   margin-top: 28px;
 }
 
-.second_row {
+.user_nav {
   margin: 60px 0;
-}
-.second_row p + h4 {
-  margin-top: 28px;
 }
