@@ -37,6 +37,8 @@
       <hr />
       <%= simple_format @club.description %>
       <hr />
+      <%= render "lists/short_list" %>
+
       <%= render "lists/index" %>
 
 
@@ -64,8 +66,7 @@
     </div>
 </body>
 
-
-
+<!--
   <div class="form-actions">
     <%= link_to t('.back', :default => t("helpers.links.back")),
                 clubs_path, :class => 'btn'  %>
@@ -79,3 +80,4 @@
     <%= link_to t('.new_list', :default => t("helpers.links.new_list")),
                 new_list_club_path(@club), :class => 'btn btn-primary' %>
   </div>
+-->

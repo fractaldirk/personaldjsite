@@ -18,7 +18,9 @@ class ClubsController < ApplicationController
   # GET /clubs/1.json
   def show
     @club = Club.find(params[:id])
-    @lists = List.find(:all, :conditions => { :club_id => @club.id })
+    @heat_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id ], :limit => 5)
+    @hot_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id], :limit => 10)
+    @list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id ])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -80,4 +80,11 @@ class ListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @list = List.find(params[:id])
+    @list.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting!"
+  end
 end

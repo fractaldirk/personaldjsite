@@ -6,7 +6,11 @@ Personaldj::Application.routes.draw do
   get "home/index"
   get "home/instructions"
 
-  resources :lists
+  resources :lists do
+    member do
+      post :vote
+    end
+  end
 
   resources :categories
 

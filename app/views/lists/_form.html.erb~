@@ -19,13 +19,13 @@
   </div>
   <hr />
   <div class="field form-inline">
-    <%= f.label :artist %>:
-    <%= f.text_field :artist %>
+    <%= f.label :title %>:
+    <%= f.text_field :title %>
   </div>
   <hr />
   <div class="field form-inline">
-    <%= f.label :title %>:
-    <%= f.text_field :title %>
+    <%= f.label :artist %>:
+    <%= f.text_field :artist %>
   </div>
   <hr />
   <div class="field form-inline">
@@ -52,6 +52,7 @@
     <%= f.label :user_id %>:
     <%= f.number_field :user_id, :value => current_user.uid %>
   </div>
+  <br/>
   <div class="actions">
     <%= f.submit "Share :)", :name => "create_button", :class => "btn btn-success"%>
   </div>

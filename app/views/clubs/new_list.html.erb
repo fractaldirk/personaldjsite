@@ -15,13 +15,13 @@
     <hr />
 
     <div class="field form-inline">
-      <%= f.label :artist %><br />
-      <%= f.text_field :artist %>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
     </div>
     <hr />
     <div class="field form-inline">
-      <%= f.label :title %><br />
-      <%= f.text_field :title %>
+      <%= f.label :artist %><br />
+      <%= f.text_field :artist %>
     </div>
     <hr />
     <div class="field form-inline">
@@ -54,7 +54,7 @@
     </div>
     <br/>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Share song", :class => "btn btn-success" %>
     </div>
   <% end %>
 </div>

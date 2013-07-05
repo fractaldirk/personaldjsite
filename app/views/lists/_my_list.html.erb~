@@ -2,10 +2,10 @@
 
 <table class="table">
   <tr>
-    <th>Artist</th>
+    <th>Votes</th>
     <th>Title</th>
+    <th>Artist</th>
     <th>Club</th>
-    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +14,16 @@
 
 <% @lists.each do |list| %>
   <tr>
+    <td><%= pluralize list.reputation_for(:votes).to_i, "vote" %></td>
+    <td><%= link_to list.title, list %></td>
     <td><%= list.artist %></td>
-    <td><%= list.title %></td>
     <% @find_club_name.each do |c| %>
       <% if c.id = list.club_id %>
-        <td><%= c.name %></td>
+        <td><%= link_to c.name, club_path(list.club_id) %></td>
       <% end %>
     <% end %>
-    <td><%= link_to 'listen', list.listen_link, :target => "_blank" %></td>
-    <td><%= link_to 'Show', list %></td>
+    <td><%= link_to 'Listen', list.listen_link, :target => "_blank", :class => "btn btn-inverse btn-mini" %></td>
     <td><%= link_to 'Promote', "#", :class => "btn btn-inverse btn-mini" %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

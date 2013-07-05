@@ -1,0 +1,37 @@
+<h3>Heat list</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th></th>
+    <th></th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Category</th>
+    <th># Votes</th>
+    <th></th>
+
+  </tr>
+
+<% my_awesome_counter = 0 %>
+<% @short_list.each do |list| %>
+  <% my_awesome_counter += 1 %>
+  <tr>
+    <td><%= my_awesome_counter %></td>
+    <td><%= link_to 'Listen', list.listen_link, :target => "_blank", :class => "btn btn-inverse btn-mini" %></td>
+    <% if current_user && !current_user.voted_for?(list) %>
+      <td><%= link_to "Vote", vote_list_path(list, type: "up"), method: "post", :class => "btn btn-mini btn-success"%></td>
+    <% else %>
+      <td></td>
+    <!-- active down voting
+      <td><%= link_to "Undo", vote_list_path(list, type: "down"), method: "post", :class => "btn btn-mini btn-danger" %></td>
+    -->
+    <% end %>
+    <td><%= link_to list.title, list %></td>
+    <td><%= list.artist %></td>
+    <td><%= list.category %></td>
+    <td><%= pluralize list.reputation_for(:votes).to_i, "vote" %></td>
+    <td><%= link_to 'Promote', "#", :class => "btn btn-mini btn-inverse" %></td>
+  </tr>
+<% end %>
+</table>

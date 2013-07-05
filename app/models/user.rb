@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
+
+  def voted_for?(list)
+    evaluations.where(target_type: list.class, target_id: list.id).present?
+  end
 end
