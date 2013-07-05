@@ -1,0 +1,10 @@
+<div class="well">
+  <h2><%= link_to club.name, club %></h2>
+  <div class="well well-mini">
+    <p>Location: <%= club.location %></p>
+    <p>Music profile: tbd</p>
+    <p>Website: <%= link_to club.website, club.website, :target => "_blank" %></p>
+    <p><%= link_to 'More info', "#", :class => "display_more_info" %></p>
+    <p class="description_info"><%= club.description %></p>
+  </div>
+</div>

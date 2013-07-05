@@ -31,8 +31,15 @@
 
       <hr>
 
+      <%= render "searches/search_form" %>
+
+      <hr />
+
       <h1>My profile</h1>
-      <%= link_to 'Share song', new_list_path, :class => "btn btn-primary" %>
+      <p>Songs listed: n</p>
+      <p>Songs succesfull: n</p>
+      <p>Songs played: n</p>
+      <p>Favorite club: @club_name</p>
 
       <%= render "lists/my_list" %>
 

@@ -31,33 +31,29 @@
 
       <hr>
 
-      <%= render "searches/search_form" %>
+      <p id="notice"><%= notice %></p>
 
-      <hr />
+      <p>
+        <b>Title:</b>
+        <%= @list.title %>
+      </p>
 
-      <h1>My profile</h1>
-      <p>Songs listed: n</p>
-      <p>Songs succesfull: n</p>
-      <p>Songs played: n</p>
-      <p>Favorite club: @club_name</p>
-      <br/>
+      <p>
+        <b>Artist:</b>
+        <%= @list.artist %>
+      </p>
 
-      <%= render "lists/my_list" %>
+      <p>
+        <b>Category:</b>
+        <%= @list.category %>
+      </p>
 
-    <!--- #new sub row
-      <div class="row-fluid sub_row">
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-    --->
+      <p>
+        <b>Club:</b>
+        <%= @list.club %>
+      </p>
 
-
+      <%= link_to 'Edit song', edit_list_path(@list), :class => 'btn btn-primary' %>
 
       <hr>
 

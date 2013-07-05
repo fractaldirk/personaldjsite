@@ -19,7 +19,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Getting started</a></li>
-          <li><a href="#">About</a></li>
+          <li><%= link_to 'Search club', new_search_path %></li>
         <% if current_user %>
           <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
         <% else %>
@@ -86,28 +86,8 @@
       <hr>
 
       <div class="footer">
-        <p>© Personal DJ 2013</p>
+        <p>© Personal DJ 2013 | <em>Number of clubs using Personal DJ: <%= @clubs.count %></em></p>
       </div>
 
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
-
-
+    </div>
 </body>

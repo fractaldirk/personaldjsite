@@ -1,25 +1,67 @@
-<p id="notice"><%= notice %></p>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<p>
-  <b>Artist:</b>
-  <%= @list.artist %>
-</p>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+</head>
 
-<p>
-  <b>Title:</b>
-  <%= @list.title %>
-</p>
+  <body id="myBody" style="display:none">
 
-<p>
-  <b>Category:</b>
-  <%= @list.category %>
-</p>
+    <div class="container-narrow">
 
-<p>
-  <b>Club:</b>
-  <%= @list.club %>
-</p>
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Activity feed</a></li>
+          <li><a href="#">News</a></li>
+        <% if current_user %>
+          <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', "/auth/facebook", id: "sign_in" %></li>
+        <% end %>
+        </ul>
+        <h3 class="muted">Personal DJ</h3>
+      </div>
 
+      <hr>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <b>Title:</b>
+        <%= @list.title %>
+      </p>
+
+      <p>
+        <b>Artist:</b>
+        <%= @list.artist %>
+      </p>
+
+      <p>
+        <b>Category:</b>
+        <%= @list.category %>
+      </p>
+
+      <p>
+        <b>Club:</b>
+        <%= @list.club_id %>
+      </p>
+
+      <!-- if someone edits the song, he/she can change the title after gathering many votes, do we want that?
+        <%= link_to 'Edit song', edit_list_path(@list), :class => 'btn btn-primary' %>
+      -->
+
+      <hr>
+
+      <div class="footer">
+        <p>© Personal DJ 2013</p>
+      </div>
+
+    </div>
+</body>

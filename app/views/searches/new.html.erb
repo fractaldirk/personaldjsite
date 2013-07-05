@@ -18,8 +18,8 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Activity feed</a></li>
-          <li><a href="#">News</a></li>
+          <li><a href="#">Getting started</a></li>
+          <li class="active"><%= link_to 'Search club', new_search_path %></li>
         <% if current_user %>
           <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
         <% else %>
@@ -31,33 +31,25 @@
 
       <hr>
 
-      <%= render "searches/search_form" %>
-
-      <hr />
-
-      <h1>My profile</h1>
-      <p>Songs listed: n</p>
-      <p>Songs succesfull: n</p>
-      <p>Songs played: n</p>
-      <p>Favorite club: @club_name</p>
-      <br/>
-
-      <%= render "lists/my_list" %>
-
-    <!--- #new sub row
-      <div class="row-fluid sub_row">
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      <%= form_for @search do |f| %>
+        <div class="field search_club_name form-inline">
+          <%= f.text_field :club_name, :placeholder => "Club name", "data-provide" => "typeahead", "data-items" => 8, data: { source: Club.order(:name).map(&:name) }, "autocomplete" => "off" %>
+          <%= f.submit "Search club", :class => 'btn btn-success' %>
+          <button class="btn switch_to_location">Switch</button>
         </div>
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
+        <div class="field search_location form-inline">
+          <%= f.text_field :location, :placeholder => "Location", "data-provide" => "typeahead", "data-items" => 8, data: { source: Club.order(:location).map(&:location) }, "autocomplete" => "off" %>
+          <%= f.submit "Search location", :class => 'btn btn-success' %>
+          <button class="btn switch_to_club_name">Switch</button>
         </div>
-      </div>
-    --->
-
-
+        <!-- future search on song?
+          <div class="field">
+            <%= f.label :song %><br />
+            <%= f.text_field :song %>
+          </div>
+        -->
+      <% end %>
 
       <hr>
 

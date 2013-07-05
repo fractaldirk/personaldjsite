@@ -9,11 +9,11 @@ $ ->
   # document.getElementById("myBody").style.display = ""
 
   $(".switch_to_location").click (event) ->
-    $(".search_club_name").hide()
+    $(".search_club_name").toggle()
     $(".search_location").fadeToggle()
     event.preventDefault()
 
   $(".switch_to_club_name").click (event) ->
-    $(".search_location").hide()
+    $(".search_location").toggle
     $(".search_club_name").fadeToggle()
     event.preventDefault()

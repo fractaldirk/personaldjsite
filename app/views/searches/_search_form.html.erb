@@ -1,0 +1,14 @@
+<%= form_for @search do |f| %>
+  <div class="field search_club_name form-inline">
+    <%= f.text_field :club_name, :placeholder => "Club name", "data-provide" => "typeahead", "data-items" => 8, data: { source: Club.order(:name).map(&:name) }, "autocomplete" => "off" %>
+    <%= f.submit "Search club", :class => 'btn btn-success' %>
+    <button class="btn switch_to_location">Switch</button>
+  </div>
+
+  <div class="field search_location form-inline">
+    <%= f.text_field :location, :placeholder => "Location", "data-provide" => "typeahead", "data-items" => 8, data: { source: Club.order(:location).map(&:location) }, "autocomplete" => "off" %>
+    <%= f.submit "Search location", :class => 'btn btn-success' %>
+    <button class="btn switch_to_club_name">Switch</button>
+  </div>
+  <!-- possible different search field for songs -->
+<% end %>

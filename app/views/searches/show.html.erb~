@@ -31,31 +31,9 @@
 
       <hr>
 
-      <%= render "searches/search_form" %>
+      <h2>Search Results</h2>
 
-      <hr />
-
-      <h1>My profile</h1>
-      <p>Songs listed: n</p>
-      <p>Songs succesfull: n</p>
-      <p>Songs played: n</p>
-      <p>Favorite club: @club_name</p>
-      <br/>
-
-      <%= render "lists/my_list" %>
-
-    <!--- #new sub row
-      <div class="row-fluid sub_row">
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-        <div class="span6">
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-    --->
+      <%= render @search.results %>
 
 
 

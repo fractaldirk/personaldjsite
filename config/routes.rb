@@ -20,6 +20,8 @@ Personaldj::Application.routes.draw do
     end
   end
 
+  resources :searches
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
