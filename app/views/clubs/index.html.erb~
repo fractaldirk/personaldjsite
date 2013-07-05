@@ -19,6 +19,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Getting started</a></li>
+          <li><a href="#">About</a></li>
         <% if current_user %>
           <li><%= link_to 'Sign out', signout_path, id: "sign_out" %></li>
         <% else %>
@@ -33,7 +34,11 @@
       <div class="jumbotron">
         <h1>Discover, share and enjoy music!</h1>
         <p class="lead">Wouldn't it be wonderful to create a community where new artists could share and promote their singles, where music fans could share their favorite songs.</p>
-        <%= link_to 'Sign up today', home_instructions_path, :class => "btn btn-large btn-success" %>
+        <%= link_to 'Sign up today', "#", :class => "btn btn-large btn-success sign_up_button" %>
+      </div>
+
+      <div class="instructions">
+        <%= render "home/instructions" %>
       </div>
 
       <hr>
