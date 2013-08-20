@@ -10,6 +10,7 @@
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+  <%= render "club_profile_chart" %>
 </head>
 
   <body id="myBody" style="display:none">
@@ -18,6 +19,7 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
+          <li><%= link_to 'Music lists', lists_path %></li>
           <li class="active"><a href="#">Activity feed</a></li>
           <li><a href="#">News</a></li>
         <% if current_user %>
@@ -36,6 +38,8 @@
       <% end %></h1>
       <hr />
       <%= simple_format @club.description %>
+      <hr />
+        <div id="piechart_3d" style="width: 450px; height: 250px;"></div>
       <hr />
 
       <%= render "lists/index" %>

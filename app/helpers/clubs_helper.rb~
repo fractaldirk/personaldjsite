@@ -1,0 +1,6 @@
+module ClubsHelper
+  def club_profile_value(value)
+    outcome = List.find(:all, :conditions => ["club_id = ? AND genre = ?", @club.id, value]).count
+    outcome
+  end
+end

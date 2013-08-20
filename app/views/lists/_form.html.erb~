@@ -29,6 +29,11 @@
   </div>
   <hr />
   <div class="field form-inline">
+    <%= f.label :genre %>:
+      <%= f.select(:genre, [['Pop', 1], ['Pop rock', 10], ['(Punk/Hard/Classic) Rock', 2], ['Metal', 3], ['Dubstep', 4], ['Alternative', 5], ['R&B', 6], ['House', 7], ['Folk', 8], ['Indie', 9], ['Ska', 11], ['Hip hop', 12], ['Drum & bass', 13], ['Techno', 14], ['Jazz', 15]], :prompt => "Music style") %>
+  </div>
+  <hr />
+  <div class="field form-inline">
     <%= f.label :category %>:
     <%= f.number_field :category %>
   </div>
@@ -54,6 +59,6 @@
   </div>
   <br/>
   <div class="actions">
-    <%= f.submit "Share :)", :name => "create_button", :class => "btn btn-success"%>
+    <%= f.submit "Share :)", :name => "create_button", :class => "btn btn-success" %>
   </div>
 <% end %>

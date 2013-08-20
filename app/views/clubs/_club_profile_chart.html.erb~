@@ -1,0 +1,33 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Genre', 'Times played'],
+      ['Pop', <%= club_profile_value(1) %> ],
+      ['Pop rock', <%= club_profile_value(2) %>],
+      ['Metal', <%= club_profile_value(3) %>],
+      ['Dubstep', <%= club_profile_value(4) %>],
+      ['Alternative', <%= club_profile_value(5) %>],
+      ['R&B', <%= club_profile_value(6) %>],
+      ['House', <%= club_profile_value(7) %>],
+      ['Folk', <%= club_profile_value(8) %>],
+      ['Indie', <%= club_profile_value(9) %>],
+      ['Rock', <%= club_profile_value(10) %>],
+      ['Ska', <%= club_profile_value(11) %>],
+      ['Hip hop', <%= club_profile_value(12) %>],
+      ['Drum & bass', <%= club_profile_value(13) %>],
+      ['Techno', <%= club_profile_value(14) %>],
+      ['Jazz', <%= club_profile_value(15) %>]
+    ]);
+
+    var options = {
+      title: 'My Daily Activities',
+      is3D: true,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+</script>

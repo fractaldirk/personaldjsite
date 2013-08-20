@@ -6,6 +6,10 @@ Personaldj::Application.routes.draw do
   get "home/index"
   get "home/instructions"
 
+  get "lists/pop-rock" => "lists#poprock"
+  get "lists/rock" => "lists#rock"
+  get "lists/indie" => "lists#indie"
+
   resources :lists do
     member do
       post :vote

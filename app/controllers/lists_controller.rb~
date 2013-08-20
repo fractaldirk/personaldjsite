@@ -84,7 +84,40 @@ class ListsController < ApplicationController
   def vote
     value = params[:type] == "up" ? 1 : -1
     @list = List.find(params[:id])
-    @list.add_evaluation(:votes, value, current_user)
+    @list.add_or_update_evaluation(:votes, value, current_user)
     redirect_to :back, notice: "Thank you for voting!"
+  end
+
+  def poprock
+    @heat_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 10 ], :limit => 20)
+    @hot_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 10 ], :limit => 25)
+    @list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 10 ])
+
+    respond_to do |format|
+      format.html { render "lists/categories/pop_rock" }
+      format.json { render json: @heat_list }
+    end
+  end
+
+  def rock
+    @heat_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 2 ], :limit => 20)
+    @hot_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 2 ], :limit => 25)
+    @list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 2 ])
+
+    respond_to do |format|
+      format.html { render "lists/categories/rock" }
+      format.json { render json: @heat_list }
+    end
+  end
+
+  def indie
+    @heat_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 9 ], :limit => 20)
+    @hot_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 9 ], :limit => 25)
+    @list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "genre = ?", 9 ])
+
+    respond_to do |format|
+      format.html { render "lists/categories/indie" }
+      format.json { render json: @heat_list }
+    end
   end
 end

@@ -44,16 +44,23 @@
       </p>
 
       <p>
+        <b>Genre:</b>
+        <%= @list.genre %>
+      </p>
+
+      <p>
         <b>Category:</b>
         <%= @list.category %>
       </p>
 
       <p>
         <b>Club:</b>
-        <%= @list.club %>
+        <%= @list.club_id %>
       </p>
 
-      <%= link_to 'Edit song', edit_list_path(@list), :class => 'btn btn-primary' %>
+      <!-- if someone edits the song, he/she can change the title after gathering many votes, do we want that?
+        <%= link_to 'Edit song', edit_list_path(@list), :class => 'btn btn-primary' %>
+      -->
 
       <hr>
 

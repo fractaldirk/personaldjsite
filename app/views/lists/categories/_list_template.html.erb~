@@ -1,6 +1,6 @@
 <h3>
-  Club list
-  <%= link_to 'New song', new_list_club_path, :class => 'btn btn-primary new_list_button' %>
+  Pop/rock music list
+  <%= link_to 'New song', new_list_path, :class => 'btn btn-primary new_list_button' %>
 </h3>
 
 <table class="table table-hover">
@@ -41,7 +41,7 @@
 <% my_awesome_counter = 0 %>
 <% @hot_list.each do |list| %>
   <% my_awesome_counter += 1 %>
-    <% if my_awesome_counter > 5 %>
+    <% if my_awesome_counter > 20 %>
       <tr>
         <td class="badge badge-warning"><%= my_awesome_counter %></td>
         <td><%= link_to 'Listen', list.listen_link, :target => "_blank", :class => "btn btn-inverse btn-mini" %></td>
@@ -65,7 +65,7 @@
 <% my_awesome_counter = 0 %>
 <% @list.each do |list| %>
   <% my_awesome_counter += 1 %>
-    <% if my_awesome_counter > 10 %>
+    <% if my_awesome_counter > 25 %>
       <tr>
         <td class="badge badge-important"><%= my_awesome_counter %></td>
         <td><%= link_to 'Listen', list.listen_link, :target => "_blank", :class => "btn btn-inverse btn-mini" %></td>

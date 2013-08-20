@@ -10,6 +10,7 @@
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
   <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+  <%= render "club_profile_chart" %>
 </head>
 
   <body id="myBody" style="display:none">
@@ -37,7 +38,8 @@
       <hr />
       <%= simple_format @club.description %>
       <hr />
-      <%= render "lists/short_list" %>
+        <div id="piechart_3d" style="width: 450px; height: 250px;"></div>
+      <hr />
 
       <%= render "lists/index" %>
 

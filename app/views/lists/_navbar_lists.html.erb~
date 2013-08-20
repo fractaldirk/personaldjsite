@@ -1,0 +1,8 @@
+<ul class="nav nav-list">
+  <li class="active"><a href="#">Home</a></li>
+  <li class="nav-header">La lista de música</li>
+  <li><%= link_to 'Pop/rock', controller: "lists", action: "poprock" %></li>
+  <li><%= link_to 'Rock', controller: "lists", action: "rock" %></li>
+  <li><%= link_to 'Indie', controller: "lists", action: "indie" %></li>
+  ...more to follow...
+</ul>

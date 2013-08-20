@@ -6,6 +6,8 @@ Personaldj::Application.routes.draw do
   get "home/index"
   get "home/instructions"
 
+  get "lists/pop-rock" => "lists#poprock"
+
   resources :lists do
     member do
       post :vote
@@ -19,6 +21,8 @@ Personaldj::Application.routes.draw do
       get 'new_list'
     end
   end
+
+  resources :searches
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
