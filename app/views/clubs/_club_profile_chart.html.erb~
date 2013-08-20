@@ -23,7 +23,7 @@
     ]);
 
     var options = {
-      title: 'My Daily Activities',
+      title: 'Overview requested genres',
       is3D: true,
     };
 
