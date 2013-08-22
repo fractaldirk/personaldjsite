@@ -19,6 +19,7 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
+          <li><%= link_to 'Music lists', lists_path %></li>
           <li class="active"><a href="#">Activity feed</a></li>
           <li><a href="#">News</a></li>
         <% if current_user %>

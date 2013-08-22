@@ -1,0 +1,25 @@
+<h3>
+  Latest Accepted songs
+</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Genre</th>
+    <th># Votes</th>
+  </tr>
+
+<% my_awesome_counter = 0 %>
+<% @latest_accepted.each do |s| %>
+  <% my_awesome_counter += 1 %>
+  <tr>
+    <td><%= my_awesome_counter %></td>
+    <td><%= @title %></td>
+    <td><%= @artist %></td>
+    <td><%= @genre %></td>
+    <td><%= @votes %></td>
+  </tr>
+<% end %>
+</table>

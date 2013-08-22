@@ -17,10 +17,24 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+    require 'open-uri'
+    require 'json'
+
     @club = Club.find(params[:id])
-    @heat_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id ], :limit => 5)
-    @hot_list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id], :limit => 10)
-    @list = List.find_with_reputation(:votes, :all, order: 'votes desc', :conditions => [ "club_id = ?", @club.id ])
+    @lists = List.find(:all)
+
+    @latest_accepted = JSON.parse(open("http://move.personal.dj/api/latest_successful_requests.json").read)
+
+    @lists.each do |l|
+      @latest_accepted.each do |s|
+        if s["name"].to_i == l.id
+          @artist = l.artist
+          @title = l.title
+          @genre = l.genre_output
+          @votes = s["points"]
+        end
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb
