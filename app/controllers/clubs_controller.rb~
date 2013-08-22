@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
         if s["name"].to_i == l.id
           @artist = l.artist
           @title = l.title
-          @genre = l.genre_output
+          @genre = l.genre_viewer
           @votes = s["points"]
         end
       end

@@ -25,17 +25,6 @@ class ClubsController < ApplicationController
 
     @latest_accepted = JSON.parse(open("http://move.personal.dj/api/latest_successful_requests.json").read)
 
-    @lists.each do |l|
-      @latest_accepted.each do |s|
-        if s["name"].to_i == l.id
-          @artist = l.artist
-          @title = l.title
-          @genre = l.genre_viewer
-          @votes = s["points"]
-        end
-      end
-    end
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @club }
