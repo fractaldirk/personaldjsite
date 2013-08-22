@@ -12,9 +12,9 @@
   </tr>
 
   <% my_awesome_counter = 0 %>
-<%= @lists.each do |l| %>
-  <%= @latest_accepted.each do |s| %>
-    <%= if s["name"].to_i == l.id %>
+<% @lists.each do |l| %>
+  <% @latest_accepted.each do |s| %>
+    <% if s["name"].to_i == l.id %>
     <% my_awesome_counter += 1 %>
       <tr>
         <td><%= my_awesome_counter %></td>

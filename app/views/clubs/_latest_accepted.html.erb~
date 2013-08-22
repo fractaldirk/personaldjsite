@@ -27,12 +27,3 @@
   <% end %>
 <% end %>
 </table>
-
-
-          @artist = l.artist
-          @title = l.title
-          @genre = l.genre_viewer
-          @votes = s["points"]
-        end
-      end
-    end
